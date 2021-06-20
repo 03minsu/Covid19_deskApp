@@ -15,15 +15,17 @@ curs.execute("use covid19;")
 #UI파일 연결
 #단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
 form_class = uic.loadUiType("Covid.ui")[0]
+main_class = uic.loadUiType("Main.ui")[0]
 
 class WindowClass(QtWidgets.QMainWindow, form_class) :
     
-    def __init__(self) :    
-        super().__init__()
+    def __init__(self, parent) :    
+        super(WindowClass, self).__init__(parent    )
         self.setupUi(self)
         self.btn3.clicked.connect(self.clear)
         self.btn1.clicked.connect(self.year2020)
         self.btn2.clicked.connect(self.year2021)
+        self.show()
 
         self.GraphWidget.setBackground("w")
         self.GraphWidget.showGrid(x=True, y=True)
@@ -57,11 +59,21 @@ class WindowClass(QtWidgets.QMainWindow, form_class) :
             y.append(row[1])
         self.plot(x,y)
 
+class MainClass(QtWidgets.QMainWindow, main_class):
+    def __init__(self) :    
+        super().__init__()
+        self.setupUi(self)
+        
+        self.pushButton.clicked.connect(self.covid)
+    
+    def covid(self):
+        WindowClass(self)
+
 def main():
     app = QApplication(sys.argv) 
-    main = WindowClass() 
+    main = MainClass() 
     main.show()
-    sys.exit(app.exec_())
+    app.exec_()
 
 if __name__ == "__main__" :
     main()

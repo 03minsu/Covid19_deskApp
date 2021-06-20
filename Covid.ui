@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>C</class>
- <widget class="QDialog" name="C">
+ <class>Main</class>
+ <widget class="QDialog" name="Main">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,12 +13,15 @@
   <property name="windowTitle">
    <string>COVID19</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(45, 45, 45);</string>
+  </property>
   <widget class="PlotWidget" name="GraphWidget" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>30</x>
      <y>60</y>
-     <width>921</width>
+     <width>1221</width>
      <height>471</height>
     </rect>
    </property>
@@ -32,11 +35,14 @@
   <widget class="QPushButton" name="btn3">
    <property name="geometry">
     <rect>
-     <x>730</x>
-     <y>540</y>
+     <x>1050</x>
+     <y>560</y>
      <width>201</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(203, 203, 203);</string>
    </property>
    <property name="text">
     <string>그래프 초기화</string>
@@ -45,8 +51,8 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>990</x>
-     <y>70</y>
+     <x>520</x>
+     <y>550</y>
      <width>251</width>
      <height>161</height>
     </rect>
@@ -63,6 +69,9 @@
     </property>
     <item>
      <widget class="QLineEdit" name="lineEdit">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(203, 203, 203);</string>
+      </property>
       <property name="text">
        <string>년도를 선택하세요</string>
       </property>
@@ -85,6 +94,9 @@
         <bold>true</bold>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(203, 203, 203);</string>
+      </property>
       <property name="text">
        <string>2020년</string>
       </property>
@@ -101,6 +113,9 @@
         <bold>true</bold>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(203, 203, 203);</string>
+      </property>
       <property name="text">
        <string>2021년</string>
       </property>
@@ -111,8 +126,8 @@
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>20</y>
+     <x>490</x>
+     <y>10</y>
      <width>301</width>
      <height>31</height>
     </rect>
@@ -123,6 +138,9 @@
      <weight>75</weight>
      <bold>true</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(203, 203, 203);</string>
    </property>
    <property name="text">
     <string>서울시 코로나19 확진자 증가 추세</string>
