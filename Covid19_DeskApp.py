@@ -8,8 +8,6 @@ import sys
 
 from pyqtgraph.graphicsItems.ScatterPlotItem import Symbols
 # ㄴ 그래프 심볼 
-import test_rc
-# ㄴ 백그라운드 이미지 소스 파일
 
 conn = pymysql.connect(host='localhost', user='root', password='123456', db='covid19', charset='utf8')
 curs = conn.cursor()
