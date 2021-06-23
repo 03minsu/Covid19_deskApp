@@ -1,6 +1,8 @@
+from os import close
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
+from PyQt5.uic.properties import QtCore
 from pyqtgraph import PlotWidget, plot
 import pyqtgraph as pg
 import pymysql
@@ -18,6 +20,8 @@ curs.execute("use covid19;")
 form_class = uic.loadUiType("Covid.ui")[0]
 main_class = uic.loadUiType("Main.ui")[0]
 menu_class = uic.loadUiType("Menu.ui")[0]
+place_class = uic.loadUiType("place.ui")[0]
+vacCine_class = uic.loadUiType("VacCine.ui")[0]
 # ㄴ 시작 화면 
 
 
@@ -26,12 +30,14 @@ class MainClass(QtWidgets.QMainWindow, main_class):
     def __init__(self) :    
         super().__init__()
         self.setupUi(self)
-                                                                           #  부모 클래스  메인창                #  자식 클래스 새창
-        self.pushButton.clicked.connect(self.menu)                        # def __init__(self) :    ->   def __init__(self, parent) :
-                                                                              # super().__init__()   ->      super([클래스명], self).__init__(parent)
-    def menu(self):                                                                                        # self.show()
+                                                                          
+        self.pushButton.clicked.connect(self.menu) 
+        # 종료 버튼 (전역 함수) 
+        self.Exit.clicked.connect(QCoreApplication.instance().quit)                       
+                                                                              
+    def menu(self):                                                                                       
         MenuClass(self)                                                                     
-                                                                                                # 클래스 호출은 함수 안에 '[클래스명](self)' 로 선언
+                                                                                                
 # 메뉴 화면 (실행 버튼 클릭 시)
 class MenuClass(QtWidgets.QMainWindow, menu_class):
     def __init__(self, parent) :
@@ -40,9 +46,15 @@ class MenuClass(QtWidgets.QMainWindow, menu_class):
         self.show()
 
         self.MonthCovid.clicked.connect(self.covidGraph)
+        self.CenterPlace.clicked.connect(self.CenterPlaceMap)
+        self.VacCine.clicked.connect(self.VacCineInfo)
 
     def covidGraph(self):
         CovidClass(self)
+    def CenterPlaceMap(self):
+        PlaceClass(self)
+    def VacCineInfo(self):
+        VacCineClass(self)
 
 # 기능 페이지 / 코로나 월 별 확진자 (연도 별 그래프)
 class CovidClass(QtWidgets.QMainWindow, form_class) :
@@ -53,6 +65,8 @@ class CovidClass(QtWidgets.QMainWindow, form_class) :
         self.btn3.clicked.connect(self.clear)
         self.btn1.clicked.connect(self.year2020)
         self.btn2.clicked.connect(self.year2021)
+        # 현재 창 종료
+        self.Quit.clicked.connect(self.place_close)
         self.show()
 
         self.GraphWidget.setBackground("w")
@@ -68,25 +82,51 @@ class CovidClass(QtWidgets.QMainWindow, form_class) :
         self.GraphWidget.clear()
 
     def year2020(self):
-        sql = "select date_format(infecD,'%y-%m') date,count(no) from covid19 group by date having date < 21"
+        self.GraphWidget.clear()
+        sql = "select date_format(infecD,'%y%m') dateM, count(no) from covid19 group by dateM having dateM < 2100;"
         curs.execute(sql)
         rows = curs.fetchall()
-        x = [1,2,3,4,5,6,7,8,9,10,11,12]
+        x = []
         y = []
         for row in rows:
             y.append(row[1])
+        for row in rows:
+            x.append(int(row[0]))
         self.plot(x,y)
 
     def year2021(self):
-        sql = "select date_format(infecD,'%y-%m') date,count(no) from covid19 group by date having date = 21"
+        self.GraphWidget.clear()
+        sql = "select date_format(infecD,'%y%m') dateM, count(no) from covid19 group by dateM having dateM > 2100"
         curs.execute(sql)
         rows = curs.fetchall()
-        x = [1,2,3,4,5,6]
+        x = []
         y = []
         for row in rows:
             y.append(row[1])
+        for row in rows:
+            x.append(int(row[0]))
         self.plot(x,y)
 
+    def place_close(self):
+        self.close()
+
+class PlaceClass(QtWidgets.QMainWindow, place_class):
+    def __init__(self, parent) :
+        super(PlaceClass, self).__init__(parent)
+        self.setupUi(self)
+        self.show()
+        
+        # 현재 창 종료
+        self.Quit.clicked.connect(self.place_close)
+        
+    def place_close(self):
+        self.close()
+
+class VacCineClass(QtWidgets.QMainWindow, vacCine_class):
+    def __init__(self, parent) :
+        super(VacCineClass, self).__init__(parent)
+        self.setupUi(self)
+        self.show()
 
 # 최초 실행 로직 --
 def main():
@@ -97,3 +137,9 @@ def main():
 
 if __name__ == "__main__" :
     main()
+     
+     #  부모 클래스  메인창                #  자식 클래스 새창
+     # def __init__(self) :    ->   def __init__(self, parent) :
+         # super().__init__()   ->      super([클래스명], self).__init__(parent)
+                                            # self.show()
+            # 클래스 호출은 함수 안에 '[클래스명](self)' 로 선언

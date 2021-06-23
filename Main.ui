@@ -77,8 +77,30 @@
     <pixmap>img/COROS.jpg</pixmap>
    </property>
   </widget>
+  <widget class="QPushButton" name="Exit">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>580</y>
+     <width>341</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#Exit {
+	background-color: rgba(255,255,255,0);
+}
+#Exit:hover {
+	background-color: rgb(255, 255, 144,0.2);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>pushButton</zorder>
+  <zorder>Exit</zorder>
  </widget>
  <resources>
  </resources>

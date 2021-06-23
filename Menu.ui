@@ -28,10 +28,10 @@
   <widget class="QPushButton" name="MonthCovid">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>670</y>
-     <width>261</width>
-     <height>81</height>
+     <x>500</x>
+     <y>250</y>
+     <width>201</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -39,8 +39,16 @@
      <pointsize>13</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">#MonthCovid {
+	background-color: rgba(255,255,255,0);
+}
+#MonthCovid:hover {
+	background-color: rgb(255, 255, 144,0.2);
+}</string>
+   </property>
    <property name="text">
-    <string>월별 코로나 확진자 증가 추세</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -59,8 +67,52 @@
     <pixmap>img/COROS_메뉴.jpg</pixmap>
    </property>
   </widget>
+  <widget class="QPushButton" name="CenterPlace">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>610</y>
+     <width>301</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#CenterPlace {
+	background-color: rgba(255,255,255,0);
+}
+#CenterPlace:hover {
+	background-color: rgb(255, 255, 144,0.2);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="VacCine">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>470</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#VacCine {
+	background-color: rgba(255,255,255,0);
+}
+#VacCine:hover {
+	background-color: rgb(255, 255, 144,0.2);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>MonthCovid</zorder>
+  <zorder>CenterPlace</zorder>
+  <zorder>VacCine</zorder>
  </widget>
  <resources/>
  <connections/>

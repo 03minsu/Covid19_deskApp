@@ -26,13 +26,13 @@
    <string>COVID19</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(45, 45, 45);</string>
+   <string notr="true"/>
   </property>
   <widget class="PlotWidget" name="GraphWidget" native="true">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>50</y>
+     <y>100</y>
      <width>1161</width>
      <height>471</height>
     </rect>
@@ -47,8 +47,8 @@
   <widget class="QPushButton" name="btn3">
    <property name="geometry">
     <rect>
-     <x>970</x>
-     <y>550</y>
+     <x>960</x>
+     <y>630</y>
      <width>201</width>
      <height>31</height>
     </rect>
@@ -64,7 +64,7 @@
    <property name="geometry">
     <rect>
      <x>450</x>
-     <y>580</y>
+     <y>610</y>
      <width>331</width>
      <height>241</height>
     </rect>
@@ -135,35 +135,40 @@
     </item>
    </layout>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QPushButton" name="Quit">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>10</y>
-     <width>301</width>
-     <height>31</height>
+     <x>1080</x>
+     <y>830</y>
+     <width>101</width>
+     <height>41</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(203, 203, 203);</string>
-   </property>
    <property name="text">
-    <string>서울시 코로나19 확진자 증가 추세</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
+    <string>Quit</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>900</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>img/COROS일별.jpg</pixmap>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>GraphWidget</zorder>
+  <zorder>btn3</zorder>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>Quit</zorder>
  </widget>
  <customwidgets>
   <customwidget>
