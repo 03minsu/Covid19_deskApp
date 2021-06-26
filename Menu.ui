@@ -109,10 +109,24 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="vac_status">
+   <property name="geometry">
+    <rect>
+     <x>454</x>
+     <y>542</y>
+     <width>291</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>예방접종현황</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>MonthCovid</zorder>
-  <zorder>CenterPlace</zorder>
+  <zorder>vac_status</zorder>
   <zorder>VacCine</zorder>
+  <zorder>CenterPlace</zorder>
  </widget>
  <resources/>
  <connections/>
