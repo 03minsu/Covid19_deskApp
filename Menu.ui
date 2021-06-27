@@ -109,10 +109,32 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="VacCine_issue">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>470</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#VacCine_issue {
+	background-color: rgba(255,255,255,0);
+}
+#VacCine_issue:hover {
+	background-color: rgb(255, 255, 144,0.2);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>MonthCovid</zorder>
   <zorder>CenterPlace</zorder>
   <zorder>VacCine</zorder>
+  <zorder>VacCine_issue</zorder>
  </widget>
  <resources/>
  <connections/>

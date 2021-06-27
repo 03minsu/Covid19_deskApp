@@ -34,33 +34,36 @@
      <height>900</height>
     </rect>
    </property>
-   <property name="minimumSize">
-    <size>
-     <width>1200</width>
-     <height>900</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>1200</width>
-     <height>900</height>
-    </size>
-   </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>img/백신정보.png</pixmap>
+    <pixmap>img/COROS부작용사례.jpg</pixmap>
    </property>
-   <property name="scaledContents">
+  </widget>
+  <widget class="QTextBrowser" name="tb">
+   <property name="geometry">
+    <rect>
+     <x>95</x>
+     <y>151</y>
+     <width>1051</width>
+     <height>651</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="openExternalLinks">
     <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="Quit">
    <property name="geometry">
     <rect>
-     <x>580</x>
-     <y>850</y>
+     <x>1080</x>
+     <y>830</y>
      <width>101</width>
      <height>41</height>
     </rect>

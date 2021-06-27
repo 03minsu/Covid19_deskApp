@@ -7,6 +7,8 @@ from pyqtgraph import PlotWidget, plot
 import pyqtgraph as pg
 import pymysql
 import sys
+import requests
+from bs4 import BeautifulSoup
 
 from pyqtgraph.graphicsItems.ScatterPlotItem import Symbols
 # ㄴ 그래프 심볼 
@@ -22,6 +24,7 @@ main_class = uic.loadUiType("Main.ui")[0]
 menu_class = uic.loadUiType("Menu.ui")[0]
 place_class = uic.loadUiType("place.ui")[0]
 vacCine_class = uic.loadUiType("VacCine.ui")[0]
+issue_class = uic.loadUiType("issue.ui")[0]
 # ㄴ 시작 화면 
 
 
@@ -48,6 +51,7 @@ class MenuClass(QtWidgets.QMainWindow, menu_class):
         self.MonthCovid.clicked.connect(self.covidGraph)
         self.CenterPlace.clicked.connect(self.CenterPlaceMap)
         self.VacCine.clicked.connect(self.VacCineInfo)
+        self.VacCine_issue.clicked.connect(self.IssueForVaccien)
 
     def covidGraph(self):
         CovidClass(self)
@@ -55,6 +59,8 @@ class MenuClass(QtWidgets.QMainWindow, menu_class):
         PlaceClass(self)
     def VacCineInfo(self):
         VacCineClass(self)
+    def IssueForVaccien(self):
+        IssueClass(self)
 
 # 기능 페이지 / 코로나 월 별 확진자 (연도 별 그래프)
 class CovidClass(QtWidgets.QMainWindow, form_class) :
@@ -127,6 +133,39 @@ class VacCineClass(QtWidgets.QMainWindow, vacCine_class):
         super(VacCineClass, self).__init__(parent)
         self.setupUi(self)
         self.show()
+    
+        self.Quit.clicked.connect(self.place_close)
+    
+    def place_close(self):
+        self.close()
+
+class IssueClass(QtWidgets.QMainWindow, issue_class):
+    def __init__(self, parent) :
+        super(IssueClass, self).__init__(parent)
+        self.setupUi(self)
+        self.show()
+
+        url = 'https://m.search.naver.com/search.naver?sm=mtb_hty.top&where=m_news&oquery=%EB%B0%B1%EC%8B%A0&tqi=hLj%2FFwp0JxossMRDexRssssstGd-286066&query=%22%EB%B0%B1%EC%8B%A0%22&nso=so%3Add%2Cp%3Aall&mynews=0&office_section_code=0&office_type=0&pd=0&photo=0&sort=1'
+
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            html = response.text
+            soup = BeautifulSoup(html, 'html.parser')
+    
+
+            for x in range(1,16): 
+                title_html = soup.select_one('#news_result_list > li:nth-child({0}) > div > a > div'.format(x))
+                title = title_html.getText()
+                link = soup.select_one('#news_result_list > li:nth-child({0}) > div > a'.format(x)).get('href')
+                self.tb.append(str(x) + ". " + title + ' (' + '<a href="' + link + '">Link</a>' + ')' + "<br>")
+            else : 
+                print(response.status_code)
+
+        self.Quit.clicked.connect(self.place_close)
+    
+    def place_close(self):
+        self.close()
 
 # 최초 실행 로직 --
 def main():
