@@ -15,7 +15,7 @@ from pyqtgraph.graphicsItems.ScatterPlotItem import Symbols
 
 conn = pymysql.connect(host='localhost', user='root', password='123456', db='covid19', charset='utf8')
 curs = conn.cursor()
-curs.execute("use covid19;")
+
 
 #UI파일 연결
 #단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
@@ -25,6 +25,7 @@ menu_class = uic.loadUiType("Menu.ui")[0]
 place_class = uic.loadUiType("place.ui")[0]
 vacCine_class = uic.loadUiType("VacCine.ui")[0]
 issue_class = uic.loadUiType("issue.ui")[0]
+vacAdv_class = uic.loadUiType("vaccine_adv.ui")[0]
 # ㄴ 시작 화면 
 
 
@@ -48,10 +49,13 @@ class MenuClass(QtWidgets.QMainWindow, menu_class):
         self.setupUi(self)
         self.show()
 
+        self.Quit.clicked.connect(self.place_close)
+
         self.MonthCovid.clicked.connect(self.covidGraph)
         self.CenterPlace.clicked.connect(self.CenterPlaceMap)
         self.VacCine.clicked.connect(self.VacCineInfo)
         self.VacCine_issue.clicked.connect(self.IssueForVaccien)
+        self.vac_status.clicked.connect(self.vaccine_cal)
 
     def covidGraph(self):
         CovidClass(self)
@@ -61,6 +65,13 @@ class MenuClass(QtWidgets.QMainWindow, menu_class):
         VacCineClass(self)
     def IssueForVaccien(self):
         IssueClass(self)
+    def vaccine_cal(self):
+        VaccineCalculator(self)
+
+    
+    def place_close(self):
+        self.close()
+
 
 # 기능 페이지 / 코로나 월 별 확진자 (연도 별 그래프)
 class CovidClass(QtWidgets.QMainWindow, form_class) :
@@ -163,6 +174,44 @@ class IssueClass(QtWidgets.QMainWindow, issue_class):
                 print(response.status_code)
 
         self.Quit.clicked.connect(self.place_close)
+    
+    def place_close(self):
+        self.close()
+
+class VaccineCalculator(QtWidgets.QMainWindow, vacAdv_class) : # 백신 현황 페이지 백신 테이블/접종률대비 부작용 비율 계산
+    
+    def __init__(self, parent) :    
+        super(VaccineCalculator, self).__init__(parent)
+        self.setupUi(self)
+        self.cal_but.clicked.connect(self.cal)
+        self.show()
+
+        self.Quit.clicked.connect(self.place_close)
+
+    def cal(self):
+        bring_txt = self.vac_box.currentText()
+
+        if bring_txt == "아스트라제네카":
+            sql = "select (adv_ser_total / inc_total) * 100 from astrazeneca"
+            curs.execute(sql)
+            row = curs.fetchone()
+            con_txt = str(row[0]) + "%"
+            self.vac_per.setText(con_txt)
+            
+        if bring_txt == "화이자":
+            sql = "select (adv_ser_total / inc_total) * 100 from pfizer"
+            curs.execute(sql)
+            row = curs.fetchone()
+            con_txt = str(row[0]) + "%"
+            self.vac_per.setText(con_txt)
+
+        if bring_txt == "얀센":
+            sql = "select (adv_ser_total / inc_total) * 100 from janssen"
+            curs.execute(sql)
+            row = curs.fetchone()
+            con_txt = str(row[0]) + "%"
+            self.vac_per.setText(con_txt)
+        
     
     def place_close(self):
         self.close()
