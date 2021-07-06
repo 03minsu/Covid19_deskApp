@@ -50,7 +50,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>img/백신정보.png</pixmap>
+    <pixmap>img/백신정보.jpg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -59,14 +59,14 @@
   <widget class="QPushButton" name="Quit">
    <property name="geometry">
     <rect>
-     <x>580</x>
-     <y>850</y>
+     <x>560</x>
+     <y>840</y>
      <width>101</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>Quit</string>
+    <string>종료</string>
    </property>
   </widget>
  </widget>

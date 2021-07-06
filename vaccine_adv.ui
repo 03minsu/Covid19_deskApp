@@ -29,24 +29,39 @@
    <widget class="QPushButton" name="cal_but">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>400</y>
-      <width>101</width>
-      <height>51</height>
+      <x>530</x>
+      <y>370</y>
+      <width>151</width>
+      <height>71</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>19</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+     </font>
+    </property>
     <property name="text">
-     <string>확인</string>
+     <string>계산</string>
     </property>
    </widget>
    <widget class="QComboBox" name="vac_box">
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>320</y>
-      <width>711</width>
-      <height>31</height>
+      <y>300</y>
+      <width>741</width>
+      <height>51</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>17</pointsize>
+      <underline>false</underline>
+     </font>
     </property>
     <property name="layoutDirection">
      <enum>Qt::LeftToRight</enum>
@@ -66,39 +81,135 @@
       <string>얀센</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>모더나</string>
+     </property>
+    </item>
    </widget>
    <widget class="QTableWidget" name="vac_tbl">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>160</y>
-      <width>711</width>
-      <height>111</height>
+      <y>120</y>
+      <width>741</width>
+      <height>151</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="sizeIncrement">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="cursor" stdset="0">
+     <cursorShape>ArrowCursor</cursorShape>
     </property>
     <row>
      <property name="text">
       <string>아스트라제네카</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
     </row>
     <row>
      <property name="text">
       <string>화이자</string>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
     </row>
     <row>
      <property name="text">
       <string>얀센</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>모더나</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
     </row>
     <column>
      <property name="text">
       <string>접종자 수</string>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
     </column>
     <column>
      <property name="text">
       <string>일반 이상반응</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <stylestrategy>PreferDefault</stylestrategy>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
      </property>
      <property name="foreground">
       <brush brushstyle="SolidPattern">
@@ -114,6 +225,14 @@
      <property name="text">
       <string>중대 이상반응</string>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
      <property name="foreground">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
@@ -128,20 +247,49 @@
      <property name="text">
       <string>사망</string>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
     </column>
     <column>
      <property name="text">
       <string>아나필락시스</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
      </property>
     </column>
     <column>
      <property name="text">
       <string>주요 이상반응</string>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
     </column>
     <item row="0" column="0">
      <property name="text">
-      <string>8,686,025명</string>
+      <string>11,292,954</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -149,7 +297,12 @@
     </item>
     <item row="0" column="1">
      <property name="text">
-      <string>34,268명</string>
+      <string>61,840</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -157,7 +310,12 @@
     </item>
     <item row="0" column="2">
      <property name="text">
-      <string>1,399명</string>
+      <string>2,643</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -165,7 +323,12 @@
     </item>
     <item row="0" column="3">
      <property name="text">
-      <string>85명</string>
+      <string>142</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -173,7 +336,12 @@
     </item>
     <item row="0" column="4">
      <property name="text">
-      <string>223명</string>
+      <string>268</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -181,7 +349,12 @@
     </item>
     <item row="0" column="5">
      <property name="text">
-      <string>1,091명</string>
+      <string>2,233</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -189,7 +362,12 @@
     </item>
     <item row="1" column="0">
      <property name="text">
-      <string>4,974,697명</string>
+      <string>6,370,065</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -197,7 +375,12 @@
     </item>
     <item row="1" column="1">
      <property name="text">
-      <string>9,179명</string>
+      <string>13,265</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -205,7 +388,12 @@
     </item>
     <item row="1" column="2">
      <property name="text">
-      <string>950명</string>
+      <string>1,273</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -213,7 +401,12 @@
     </item>
     <item row="1" column="3">
      <property name="text">
-      <string>153명</string>
+      <string>192</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -221,7 +414,12 @@
     </item>
     <item row="1" column="4">
      <property name="text">
-      <string>72명</string>
+      <string>103</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -229,7 +427,12 @@
     </item>
     <item row="1" column="5">
      <property name="text">
-      <string>725명</string>
+      <string>978</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -237,7 +440,12 @@
     </item>
     <item row="2" column="0">
      <property name="text">
-      <string>566,847명</string>
+      <string>1,126,471</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -245,7 +453,12 @@
     </item>
     <item row="2" column="1">
      <property name="text">
-      <string>423명</string>
+      <string>5,554</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -253,7 +466,12 @@
     </item>
     <item row="2" column="2">
      <property name="text">
-      <string>32명</string>
+      <string>236</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -261,7 +479,12 @@
     </item>
     <item row="2" column="3">
      <property name="text">
-      <string>0명</string>
+      <string>1</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -269,7 +492,12 @@
     </item>
     <item row="2" column="4">
      <property name="text">
-      <string>21명</string>
+      <string>45</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -277,7 +505,85 @@
     </item>
     <item row="2" column="5">
      <property name="text">
-      <string>11명</string>
+      <string>190</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </item>
+    <item row="3" column="0">
+     <property name="text">
+      <string>17,466</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </item>
+    <item row="3" column="1">
+     <property name="text">
+      <string>28</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </item>
+    <item row="3" column="2">
+     <property name="text">
+      <string>0</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </item>
+    <item row="3" column="3">
+     <property name="text">
+      <string>0</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </item>
+    <item row="3" column="4">
+     <property name="text">
+      <string>0</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </item>
+    <item row="3" column="5">
+     <property name="text">
+      <string>0</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
@@ -288,10 +594,17 @@
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>590</y>
-      <width>711</width>
-      <height>101</height>
+      <y>550</y>
+      <width>741</width>
+      <height>211</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="layoutDirection">
      <enum>Qt::LeftToRight</enum>
@@ -304,11 +617,11 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Gulim'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;코로나19 예방접종 후 이상반응으로 의심되어 신고된 건으로 의료기관에서 신고한 정보를 기반으로 산출하였으며, 백신과 이상반응 간 인과성을 제시하는 것은 아님.&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;일반 이상반응&lt;/span&gt;은 예방접종후 접종부위 발적, 통증, 부기, 근육통, 발열, 두통, 오한 등 흔하게 발생하는 증상을 포함&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;중대한 이상반응&lt;/span&gt;은 사망, 아나필락시스 의심, (주요 이상반응 : 중환자실 입원, 생명위증, 영구장애/후유증) 등을 포함&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;코로나19 예방접종 후 이상반응으로 의심되어 신고된 건으로 의료기관에서 신고한 정보를 기반으로 산출하였으며, 백신과 이상반응 간 인과성을 제시하는 것은 아님.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; text-decoration: underline; color:#0000ff;&quot;&gt;일반 이상반응&lt;/span&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;은 예방접종후 접종부위 발적, 통증, 부기, 근육통, 발열, 두통, 오한 등 흔하게 발생하는 증상을 포함&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; text-decoration: underline; color:#ff0000;&quot;&gt;중대한 이상반응&lt;/span&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;은 사망, 아나필락시스 의심, (주요 이상반응 : 중환자실 입원, 생명위증, 영구장애/후유증) 등을 포함&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -345,39 +658,28 @@ p, li { white-space: pre-wrap; }
      <pixmap>img/COROS예방접종현황.jpg</pixmap>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>650</x>
-      <y>460</y>
-      <width>251</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>접종자수 대비 중대이상반응 비율 (단위 : %)</string>
-    </property>
-    <property name="textFormat">
-     <enum>Qt::AutoText</enum>
-    </property>
-   </widget>
    <widget class="QLabel" name="vac_per">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>460</y>
-      <width>101</width>
-      <height>20</height>
+      <x>290</x>
+      <y>450</y>
+      <width>581</width>
+      <height>71</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="layoutDirection">
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="text">
-     <string/>
+     <string>접종자수 대비 중대이상반응 비율 :  </string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -393,7 +695,33 @@ p, li { white-space: pre-wrap; }
      </rect>
     </property>
     <property name="text">
-     <string>Quit</string>
+     <string>종료</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>800</y>
+      <width>611</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>본 데이터는 6월27일(접종 17주차) 기준 데이터입니다</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <zorder>label</zorder>
@@ -401,9 +729,9 @@ p, li { white-space: pre-wrap; }
    <zorder>vac_box</zorder>
    <zorder>vac_tbl</zorder>
    <zorder>manual_txt</zorder>
-   <zorder>label_3</zorder>
    <zorder>vac_per</zorder>
    <zorder>Quit</zorder>
+   <zorder>label_2</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

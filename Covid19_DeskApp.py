@@ -26,6 +26,7 @@ place_class = uic.loadUiType("place.ui")[0]
 vacCine_class = uic.loadUiType("VacCine.ui")[0]
 issue_class = uic.loadUiType("issue.ui")[0]
 vacAdv_class = uic.loadUiType("vaccine_adv.ui")[0]
+district_class = uic.loadUiType("district.ui")[0]
 # ㄴ 시작 화면 
 
 
@@ -49,12 +50,13 @@ class MenuClass(QtWidgets.QMainWindow, menu_class):
         self.setupUi(self)
         self.show()
 
-        self.Quit.clicked.connect(self.place_close)
+        self.Quit_2.clicked.connect(self.place_close)
 
         self.MonthCovid.clicked.connect(self.covidGraph)
         self.CenterPlace.clicked.connect(self.CenterPlaceMap)
         self.VacCine.clicked.connect(self.VacCineInfo)
         self.VacCine_issue.clicked.connect(self.IssueForVaccien)
+        self.dist_inc.clicked.connect(self.dist_list)
         self.vac_status.clicked.connect(self.vaccine_cal)
 
     def covidGraph(self):
@@ -67,7 +69,8 @@ class MenuClass(QtWidgets.QMainWindow, menu_class):
         IssueClass(self)
     def vaccine_cal(self):
         VaccineCalculator(self)
-
+    def dist_list(self):
+        DistrictInc(self)
     
     def place_close(self):
         self.close()
@@ -192,29 +195,72 @@ class VaccineCalculator(QtWidgets.QMainWindow, vacAdv_class) : # 백신 현황 �
         bring_txt = self.vac_box.currentText()
 
         if bring_txt == "아스트라제네카":
-            sql = "select (adv_ser_total / inc_total) * 100 from astrazeneca"
+            sql = "select (ast_adv / ast) * 100 from vac_adv"
             curs.execute(sql)
             row = curs.fetchone()
-            con_txt = str(row[0]) + "%"
+            con_txt = "접종자수 대비 중대이상반응 비율 :  " + str(row[0]) + "%"
             self.vac_per.setText(con_txt)
             
         if bring_txt == "화이자":
-            sql = "select (adv_ser_total / inc_total) * 100 from pfizer"
+            sql = "select (pfi_adv / pfi) * 100 from vac_adv"
             curs.execute(sql)
             row = curs.fetchone()
-            con_txt = str(row[0]) + "%"
+            con_txt = "접종자수 대비 중대이상반응 비율 :  " + str(row[0]) + "%"
             self.vac_per.setText(con_txt)
 
         if bring_txt == "얀센":
-            sql = "select (adv_ser_total / inc_total) * 100 from janssen"
+            sql = "select (jan_adv / jan) * 100 from vac_adv"
             curs.execute(sql)
             row = curs.fetchone()
-            con_txt = str(row[0]) + "%"
+            con_txt = "접종자수 대비 중대이상반응 비율 :  " + str(row[0]) + "%"
+            self.vac_per.setText(con_txt)
+
+        if bring_txt == "모더나":
+            sql = "select (moder_adv / moder) * 100 from vac_adv"
+            curs.execute(sql)
+            row = curs.fetchone()
+            con_txt = "접종자수 대비 중대이상반응 비율 :  " + str(row[0]) + "%"
             self.vac_per.setText(con_txt)
         
     
     def place_close(self):
         self.close()
+
+class DistrictInc(QtWidgets.QMainWindow, district_class) :
+    
+    def __init__(self, parent) :    
+        super(DistrictInc, self).__init__(parent)
+        self.setupUi(self)
+        self.calendar.clicked.connect(self.dist)
+        self.show()
+        self.Quit_2.clicked.connect(self.place_close)
+
+
+    def dist(self):
+        self.dist_txt.clear()
+        district = self.dist_list.currentText()
+        caln = self.calendar.selectedDate().toString().split(" ")
+        date = caln[3] + "-" + caln[1] + "-" + caln[2]
+        count = 0
+
+        sql = "select infecD, place, infecP, state from covid19 where place = '{0}' and infecD = '{1}'".format(district, date)
+        curs.execute(sql)
+        rows = curs.fetchall()
+
+        for row in rows:
+            count += 1
+            txt = str(row[0]) + "/위치 : " + row[1] + "/감염경로 : " + row[2] + "/상태 : " + row[3]
+            print(txt)
+            self.dist_txt.append(txt)
+        self.dist_txt.append("총 " + str(count) + "명 확진자가 발생")
+
+    def place_close(self):
+        self.close()
+        
+        
+
+        
+      
 
 # 최초 실행 로직 --
 def main():

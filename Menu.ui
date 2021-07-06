@@ -28,10 +28,10 @@
   <widget class="QPushButton" name="MonthCovid">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>250</y>
-     <width>201</width>
-     <height>41</height>
+     <x>200</x>
+     <y>340</y>
+     <width>361</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="font">
@@ -70,10 +70,10 @@
   <widget class="QPushButton" name="CenterPlace">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>660</x>
      <y>610</y>
-     <width>301</width>
-     <height>51</height>
+     <width>351</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -91,10 +91,10 @@
   <widget class="QPushButton" name="VacCine">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>470</y>
-     <width>141</width>
-     <height>41</height>
+     <x>660</x>
+     <y>190</y>
+     <width>351</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -112,10 +112,10 @@
   <widget class="QPushButton" name="VacCine_issue">
    <property name="geometry">
     <rect>
-     <x>610</x>
-     <y>470</y>
-     <width>141</width>
-     <height>41</height>
+     <x>660</x>
+     <y>320</y>
+     <width>361</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -133,10 +133,10 @@
   <widget class="QPushButton" name="vac_status">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>540</y>
-     <width>301</width>
-     <height>41</height>
+     <x>660</x>
+     <y>490</y>
+     <width>351</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -151,17 +151,38 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="Quit">
+  <widget class="QPushButton" name="dist_inc">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>690</y>
+     <x>200</x>
+     <y>470</y>
+     <width>361</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#dist_inc {
+	background-color: rgba(255,255,255,0);
+}
+#dist_inc:hover {
+	background-color: rgb(255, 255, 144,0.2);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Quit_2">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>680</y>
      <width>101</width>
-     <height>41</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
-    <string>Quit</string>
+    <string>종료</string>
    </property>
   </widget>
   <zorder>label</zorder>
@@ -170,7 +191,8 @@
   <zorder>VacCine</zorder>
   <zorder>VacCine_issue</zorder>
   <zorder>vac_status</zorder>
-  <zorder>Quit</zorder>
+  <zorder>dist_inc</zorder>
+  <zorder>Quit_2</zorder>
  </widget>
  <resources/>
  <connections/>
