@@ -185,6 +185,27 @@
     <string>종료</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="maskMode">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>20</y>
+     <width>361</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#mask {
+	background-color: rgba(255,255,255);
+}
+#mask:hover {
+	background-color: rgb(255, 255, 144);
+}</string>
+   </property>
+   <property name="text">
+    <string>마스크 감시 모드</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>MonthCovid</zorder>
   <zorder>CenterPlace</zorder>
@@ -193,6 +214,7 @@
   <zorder>vac_status</zorder>
   <zorder>dist_inc</zorder>
   <zorder>Quit_2</zorder>
+  <zorder>maskMode</zorder>
  </widget>
  <resources/>
  <connections/>
