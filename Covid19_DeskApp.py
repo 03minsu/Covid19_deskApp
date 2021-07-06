@@ -34,13 +34,13 @@ class MainClass(QtWidgets.QMainWindow, main_class):
     def __init__(self) :    
         super().__init__()
         self.setupUi(self)
-                                                                          
+                                                           
         self.pushButton.clicked.connect(self.menu) 
         # 종료 버튼 (전역 함수) 
         self.Exit.clicked.connect(QCoreApplication.instance().quit)                       
                                                                               
     def menu(self):                                                                                       
-        MenuClass(self)                                                                     
+        MenuClass(self)                                                                    
                                                                                                 
 # 메뉴 화면 (실행 버튼 클릭 시)
 class MenuClass(QtWidgets.QMainWindow, menu_class):
