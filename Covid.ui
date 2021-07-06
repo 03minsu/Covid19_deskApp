@@ -145,7 +145,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Quit</string>
+    <string>종료</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">

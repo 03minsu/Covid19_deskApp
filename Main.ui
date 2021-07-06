@@ -102,7 +102,6 @@
   <zorder>pushButton</zorder>
   <zorder>Exit</zorder>
  </widget>
- <resources>
- </resources>
+ <resources/>
  <connections/>
 </ui>

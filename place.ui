@@ -47,7 +47,7 @@
     <pixmap>img/COROS예방접종위치.jpg</pixmap>
    </property>
   </widget>
-  <widget class="QWebEngineView" name="webEngineView">
+  <widget class="QWebEngineView" name="webEngineView" native="true">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -56,12 +56,12 @@
      <height>670</height>
     </rect>
    </property>
-   <property name="url">
+   <property name="url" stdset="0">
     <url>
      <string>https://map.naver.com/v5/search/코로나 예방접종센터?c=14137197.4122064,4528814.0835624,13,0,0,0,dh</string>
     </url>
    </property>
-   <property name="zoomFactor">
+   <property name="zoomFactor" stdset="0">
     <double>1.000000000000000</double>
    </property>
   </widget>
@@ -75,7 +75,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Quit</string>
+    <string>종료</string>
    </property>
   </widget>
  </widget>
