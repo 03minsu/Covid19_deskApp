@@ -175,24 +175,31 @@
   <widget class="QPushButton" name="Quit_2">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>680</y>
+     <x>320</x>
+     <y>670</y>
      <width>101</width>
      <height>51</height>
     </rect>
    </property>
    <property name="text">
-    <string>종료</string>
+    <string>메인화면으로</string>
    </property>
   </widget>
   <widget class="QPushButton" name="maskMode">
    <property name="geometry">
     <rect>
-     <x>810</x>
-     <y>20</y>
+     <x>200</x>
+     <y>150</y>
      <width>361</width>
      <height>101</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">#mask {
