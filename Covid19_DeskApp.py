@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 from pyqtgraph.graphicsItems.ScatterPlotItem import Symbols
 # ㄴ 그래프 심볼 
 
-conn = pymysql.connect(host='localhost', user='root', password='apmsetup', db='covid19', charset='utf8')
+conn = pymysql.connect(host='localhost', user='root', password='123456', db='covid19', charset='utf8')
 curs = conn.cursor()
 
 
